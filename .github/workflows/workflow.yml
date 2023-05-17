@@ -1,0 +1,73 @@
+name: Deploy Users App
+on:
+  push:
+    branches: [main, feature/*]
+env:
+  ### VARIABLES GENERALES ###
+  project_name: 'users-frontend'
+  team: 'ttx'
+  cache_path: node_modules
+  language: 'javascript'
+  region: 'us-east-1'
+  build_folder: build
+  bucket_name: users.com
+  cloudfront_id: 123A
+
+jobs:
+  install-dev-dependencies:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Restore cache
+        uses: actions/cache@v2
+        env:
+          cache-name: nodejs-github-actions
+        with:
+          path: node_modules
+          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}-main
+          restore-keys: npm-${{ env.cache-name }}
+      - name: Install Dependencies
+        run: |
+          npm install
+
+  linter:
+    runs-on: ubuntu-20.04
+    needs: install-dev-dependencies
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore cache
+        uses: actions/cache@v2
+        env:
+          cache-name: nodejs-github-actions
+        with:
+          path: node_modules
+          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}-main
+          restore-keys: npm-${{ env.cache-name }}
+      - name: Running Linter
+        run: npm run lint
+
+  test-coverage:
+    runs-on: ubuntu-20.04
+    needs: install-dev-dependencies
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore cache
+        uses: actions/cache@v2
+        env:
+          cache-name: nodejs-github-actions
+        with:
+          path: node_modules
+          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}-main
+          restore-keys: npm-${{ env.cache-name }}
+      - name: Running Test
+        run: |
+          npm run test -- -u
+      - name: Persist Data
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage

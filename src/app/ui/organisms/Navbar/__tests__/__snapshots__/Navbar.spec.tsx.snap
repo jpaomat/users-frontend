@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar /> component should render component 1`] = `
+<div>
+  <nav
+    class="navbar navbar-expand-sm navbar- - p-2"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="collapse navbar-collapse"
+        id="navbarNav"
+      >
+        <ul
+          class="navbar-nav"
+        >
+          <a
+            class="nav-link "
+            href="/users"
+          >
+            Usuarios
+          </a>
+          <a
+            class="nav-link "
+            href="/posts"
+          >
+            Posts
+          </a>
+          <a
+            class="nav-link "
+            href="/albums"
+          >
+            Álbumes
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="collapse navbar-collapse w-100 dual-collapse2 d-flex justify-content-end"
+    >
+      <ul
+        class="navbar-nav ml-auto"
+      >
+        <span
+          class="nav-item nav-link text-primary"
+        >
+          Paola
+        </span>
+        <button
+          class="btn btn-outline-light btn-sm"
+        >
+          <span>
+            Logout
+          </span>
+        </button>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;

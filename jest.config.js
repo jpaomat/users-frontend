@@ -23,6 +23,12 @@ module.exports = {
 				axios: 'axios/dist/node/axios.cjs'
 			},
 			verbose: true,
+
+			// Module file extensions for importing
+			// moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+			transform: {
+				'^.+\\.tsx?$': 'ts-jest'
+			},
 		}
 	],
   	transformIgnorePatterns: ['node_modules/(?!axios)'],

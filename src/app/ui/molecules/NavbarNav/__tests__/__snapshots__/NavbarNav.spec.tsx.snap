@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavbarNav /> component should render component 1`] = `
+<div>
+  <div
+    class="collapse navbar-collapse"
+    id="navbarNav"
+  >
+    <ul
+      class="navbar-nav"
+    >
+      <a
+        aria-current="page"
+        class="nav-link active"
+        href="/"
+      />
+    </ul>
+  </div>
+</div>
+`;

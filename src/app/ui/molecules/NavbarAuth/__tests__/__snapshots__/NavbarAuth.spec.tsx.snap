@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavbarAuth /> component should render component 1`] = `
+<div>
+  <ul
+    class="navbar-nav ml-auto"
+  >
+    <span
+      class="nav-item nav-link text-primary"
+    >
+      Maria
+    </span>
+    <button
+      class="btn btn-outline-light btn-sm"
+    >
+      <span>
+        Logout
+      </span>
+    </button>
+  </ul>
+</div>
+`;

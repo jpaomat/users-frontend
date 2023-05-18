@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavbarLink /> component should render component 1`] = `
+<div>
+  <a
+    class="nav-link "
+    href="/test"
+  >
+    test
+  </a>
+</div>
+`;

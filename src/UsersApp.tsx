@@ -1,9 +1,10 @@
 import './UsersApp.scss';
+import { AppRouter } from './app/router/AppRouter';
 
 function UsersApp() {
   return (
    <>
-    <h1>Users app</h1>
+      <AppRouter />
    </>
   );
 }

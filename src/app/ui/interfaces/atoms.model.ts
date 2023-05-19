@@ -12,3 +12,8 @@ export interface INavbarLink {
     text: string;
     path: string;
 }
+
+export interface IUserIcon {
+    icon: string;
+    userName: string;
+}

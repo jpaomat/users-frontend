@@ -2,7 +2,6 @@ module.exports = {
 	testEnvironment: 'jest-environment-jsdom',
 	moduleNameMapper: { // npm i --save-dev babel-jest
 		'^.+\\.(css|less|scss)$': 'babel-jest',
-		axios: 'axios/dist/node/axios.cjs'
 	},
 	projects: [
 		/**
@@ -20,12 +19,11 @@ module.exports = {
 			],
 			moduleNameMapper: {
 				'^.+\\.(css|less|scss)$': 'babel-jest',
-				axios: 'axios/dist/node/axios.cjs'
 			},
 			verbose: true,
 
 			// Module file extensions for importing
-			// moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+			moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 			transform: {
 				'^.+\\.tsx?$': 'ts-jest'
 			},

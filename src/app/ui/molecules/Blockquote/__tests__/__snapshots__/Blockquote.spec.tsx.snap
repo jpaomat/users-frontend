@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BlockquoteUser /> component should render component 1`] = `
+<div>
+  <div>
+    <blockquote
+      class="blockquote"
+    >
+      <p
+        class="font-16"
+      >
+        text blockquote
+      </p>
+    </blockquote>
+    <figcaption
+      class="blockquote-footer"
+    >
+      <cite
+        title="Source Title"
+      >
+        text
+      </cite>
+    </figcaption>
+  </div>
+</div>
+`;

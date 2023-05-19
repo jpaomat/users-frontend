@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavbarAuth /> component should render component 1`] = `
+<div>
+  <div
+    class="alert alert-info text-center"
+  >
+    Cargando ...
+  </div>
+</div>
+`;

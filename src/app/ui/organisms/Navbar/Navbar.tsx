@@ -4,9 +4,7 @@ import { NavbarAuth, NavbarNav, navbarLinks } from '../../molecules';
 
 export const Navbar = ({ type, size }: INavbar) => {
 	return (
-		<nav
-			className={`navbar navbar-expand-sm navbar-${type} ${size}-${type} p-2`}
-		>
+		<nav className={`navbar fixed-top navbar-expand-sm navbar-${type} ${size}-${type} p-2`}>
 			<div className='container-fluid'>
 				<NavbarNav navbarItems={navbarLinks} />
 			</div>

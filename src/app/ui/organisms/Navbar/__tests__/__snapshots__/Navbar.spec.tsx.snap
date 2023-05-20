@@ -3,7 +3,7 @@
 exports[`<Navbar /> component should render component 1`] = `
 <div>
   <nav
-    class="navbar navbar-expand-sm navbar- - p-2"
+    class="navbar fixed-top navbar-expand-sm navbar- - p-2"
   >
     <div
       class="container-fluid"

@@ -1,15 +1,18 @@
 import { useAxios } from './useAxios';
-import { getDataByUser } from '../helpers/getDataByUserId';
+import { getDataByUser } from '../helpers';
 import { ICardItem } from '../ui/interfaces';
 import { useEffect, useState } from 'react';
+import envJson from '../../app/config/ENV.json';
 
-export const UseUser = ((resource: string) => {
+const usersClient = envJson.usersClient;
+
+export const useUser = ((resource: string) => {
 
     const { data: initialUsersData, hasError } = useAxios(resource);
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [dataCompleteUsers, setDataCompleteUsers] = useState<ICardItem[]>([{
         description: '',
-        aditionalInfo: [],
+        aditionalInfo: [''],
         footerText: '',
     }]);
 
@@ -22,12 +25,12 @@ export const UseUser = ((resource: string) => {
         };
     };
 
-    const getData = async () => {
+    const addPostsToUsers = async () => {
         if (!hasError && initialUsersData.length > 0) {
             const userComplete = await Promise.all(
                 initialUsersData.map(async user => {
-                    const postsByUser = await getDataByUser(user.id, 'posts');
-                    const albumsByUser = await getDataByUser(user.id, 'albums');
+                    const postsByUser = await getDataByUser({ id: user.id, path: usersClient.post });
+                    const albumsByUser = await getDataByUser({ id: user.id, path: usersClient.albums });
                     return addNumPostInUsers({
                         ...user,
                         numPosts: postsByUser.length,
@@ -40,7 +43,7 @@ export const UseUser = ((resource: string) => {
     };
 
     useEffect(() => {
-        getData();
+        addPostsToUsers();
         setIsLoadingData(true);
     }, [initialUsersData]);
 

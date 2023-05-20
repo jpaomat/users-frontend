@@ -1,6 +1,10 @@
+import { usePosts } from '../../../hooks';
+import { UserTemplate } from '../../../templates';
+import envJson from '../../../config/ENV.json';
 
 export const Posts = () => {
-  return (
-    <div>Albums</div>
-  );
+  const usersClient = envJson.usersClient;
+	const { postsData, isLoadingData } = usePosts(usersClient.post, 5);
+
+	return <UserTemplate dataList={postsData} isLoadingData={isLoadingData} />;
 };

@@ -24,7 +24,6 @@ export const CardItem = ({ userIcon, description, footerText, aditionalInfo }: I
 };
 
 CardItem.defaultProps = {
-	userIcon: {},
 	description:'', 
 	footerText:'', 
 	aditionalInfo: [],
@@ -34,5 +33,5 @@ CardItem.propTypes = {
 	userIcon: PropTypes.shape({}),
 	description:PropTypes.string, 
 	footerText:PropTypes.string, 
-	aditionalInfo: PropTypes.arrayOf,
+	aditionalInfo: PropTypes.arrayOf(PropTypes.string),
 };

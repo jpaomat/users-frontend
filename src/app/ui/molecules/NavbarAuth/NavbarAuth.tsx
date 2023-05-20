@@ -9,7 +9,7 @@ export const NavbarAuth = ({ userName }: INavbarAuth) => {
 			<ButtonApp
 				size='sm'
 				variant='outline-light'
-				onClick={() => console.log('click')}
+				onClick={() => console.log('Logout')}
 			>
 				<span>Logout</span>
 			</ButtonApp>

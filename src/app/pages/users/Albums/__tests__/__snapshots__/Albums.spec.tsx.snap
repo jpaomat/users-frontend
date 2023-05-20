@@ -2,8 +2,48 @@
 
 exports[`<Albums /> component should render component 1`] = `
 <div>
-  <div>
-    Albums list
+  <div
+    class="container mt-72"
+  >
+    <div
+      class="user-list"
+    >
+      <ul
+        class="list-group"
+      >
+        <li
+          class="list-group-item"
+        >
+          <div
+            class=" d-flex m-8 justify-content-between"
+          >
+            <div>
+              <blockquote
+                class="blockquote"
+              >
+                <p
+                  class="font-16"
+                />
+              </blockquote>
+              <figcaption
+                class="blockquote-footer"
+              >
+                <cite
+                  title="Source Title"
+                />
+              </figcaption>
+            </div>
+            <div
+              class="item-info__aditional"
+            >
+              <p
+                class="text-primary font-16"
+              />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;

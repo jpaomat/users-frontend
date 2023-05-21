@@ -16,7 +16,7 @@ exports[`<Navbar /> component should render component 1`] = `
           class="navbar-nav"
         >
           <a
-            class="nav-link "
+            class="nav-link  undefined"
             href="/test"
           >
             test

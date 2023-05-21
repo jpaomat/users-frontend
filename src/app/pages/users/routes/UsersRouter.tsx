@@ -1,12 +1,18 @@
-import { navbarLinks } from '../../../ui';
-import { Navbar } from '../../../ui/organisms';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { useContext } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Albums, Posts, Users } from '../';
+import { Navbar } from '../../../ui/organisms';
+import { navbarLinks } from '../../../helpers';
+import { UserContext } from '../../../context';
 
 export const UsersRouter = () => {
+	const navigate = useNavigate();
+	const { setNumberAlbums, setNumberPosts } = useContext(UserContext);
+	const itemsNavbar = navbarLinks({ setNumberAlbums, setNumberPosts, navigate });
+
 	return (
 		<>
-			<Navbar size='bg' type='dark' navbarLinks={navbarLinks} />
+			<Navbar size='bg' type='dark' navbarLinks={itemsNavbar} />
 			<Routes>
 				<Route path='/users' element={<Users />} />
 				<Route path='/posts' element={<Posts />} />

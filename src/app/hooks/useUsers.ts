@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CardItemProps } from '../interfaces';
-import { getDataByUser } from '../helpers';
+import { getDataByUser } from '../utils';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
 

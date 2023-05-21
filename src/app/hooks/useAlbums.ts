@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CardItemProps } from '../interfaces';
-import { getDataByUser, getLastElementsArray } from '../helpers';
+import { getDataByUser, getLastElementsArray } from '../utils';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
 
@@ -31,7 +31,7 @@ export const useAlbums = (resource: string, numLastAlmbums: number ) => {
     useEffect(() => {
         addPhotosToAlbums();
         setIsLoadingData(true);
-    }, [initialAlbumData]);
+    }, [initialAlbumData, numLastAlmbums]);
 
   return {
     albumsData: dataCompleteAlbums,

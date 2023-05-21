@@ -3,7 +3,7 @@
 exports[`<NavbarLink /> component should render component 1`] = `
 <div>
   <a
-    class="nav-link "
+    class="nav-link  undefined"
     href="/test"
   >
     test

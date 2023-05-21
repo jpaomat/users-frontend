@@ -6,7 +6,7 @@ export const navbarLinks: INavbarLink[] = [
 		path: '/users'
 	},
 	{
-		text: 'Posts',
+		text: 'Publicaciones',
 		path: '/posts'
 	},
 	{

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { INavbar } from '../../interfaces/organisms.model';
-import { NavbarAuth, NavbarNav, navbarLinks } from '../../molecules';
+import { NavbarAuth, NavbarNav } from '../../molecules';
 
-export const Navbar = ({ type, size }: INavbar) => {
+export const Navbar = ({ type, size, navbarLinks }: INavbar) => {
 	return (
 		<nav className={`navbar fixed-top navbar-expand-sm navbar-${type} ${size}-${type} p-2`}>
 			<div className='container-fluid'>

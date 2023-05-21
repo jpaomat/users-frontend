@@ -1,46 +1,27 @@
-import { getDataByUser, sortDataById } from '../helpers';
 import { useEffect, useState } from 'react';
-import { useAxios } from './useAxios';
+import { getDataByUser, getLastElementsArray } from '../helpers';
 import { ICardItem } from '../ui/interfaces';
-import envJson from '../../app/config/ENV.json';
-
-const usersClient = envJson.usersClient;
+import { useAxios, initialDataCardItem } from './';
+import envJson from '../config/ENV.json';
 
 export const useAlbums = (resource: string, numLastAlmbums: number ) => {
-
+    const usersClient = envJson.usersClient;
     const { data: initialAlbumData, hasError } = useAxios(resource);
     const [isLoadingData, setIsLoadingData] = useState(false);
-    const [dataCompleteAlbums, setDataCompleteAlbums] = useState<ICardItem[]>([{
-        description: '',
-        aditionalInfo: [''],
-        footerText: '',
-    }]);
-
-    const getLastAlbums = (posts: any) => {
-        const sortPosts = sortDataById(posts);
-        return sortPosts.slice(0, numLastAlmbums);
-    };
-
-    const addNumCommentsInUsers = (data: any) => {
-        return {
-            description: data.title,
-            footerText: `Autor: ${data.userName}`,
-            aditionalInfo: [`${data.numPhotos} fotos`],
-        };
-    };
+    const [dataCompleteAlbums, setDataCompleteAlbums] = useState<ICardItem[]>([initialDataCardItem]);
 
     const addPhotosToAlbums = async () => {
         if (!hasError && initialAlbumData.length > 0) {
-            const lastAlbums = getLastAlbums(initialAlbumData);
+            const lastAlbums = getLastElementsArray(initialAlbumData, numLastAlmbums);
             const userComplete = await Promise.all(
-                lastAlbums.map(async (album: any) => {
-                    const photosByAlbum = await getDataByUser({ id: album.id, path: usersClient.photos });
-                    const userByUserId = await getDataByUser({ id: album.id, path: `${usersClient.users}/${album.userId}` });
-                    return addNumCommentsInUsers({
-                        ...album,
-                        numPhotos: photosByAlbum.length,
-                        userName: userByUserId.name
-                    });
+                lastAlbums.map(async ({ id, title, userId }) => {
+                    const photosByAlbum = await getDataByUser({ id, path: usersClient.photos });
+                    const userByUserId = await getDataByUser({ id, path: `${usersClient.users}/${userId}` });
+                    return {
+                        title,
+                        footerText: `Autor: ${userByUserId.name}`,
+                        aditionalInfo: [`${photosByAlbum.length} fotos`],
+                    };
                 })
             );
             setDataCompleteAlbums(userComplete);

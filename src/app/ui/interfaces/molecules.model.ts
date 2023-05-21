@@ -10,12 +10,14 @@ export interface INavbarAuth {
 
 export interface ICardItem {
     userIcon?: IUserIcon;
-    description: string;
+    title?: string;
+    description?: string;
     footerText: string;
     aditionalInfo: string[];
 }
 
 export interface IBlockquote {
-    description: string;
+    title?: string;
+    description?: string;
     footerText: string;
 }

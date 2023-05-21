@@ -10,10 +10,11 @@ exports[`<NavbarNav /> component should render component 1`] = `
       class="navbar-nav"
     >
       <a
-        aria-current="page"
-        class="nav-link active"
-        href="/"
-      />
+        class="nav-link "
+        href="/test"
+      >
+        test
+      </a>
     </ul>
   </div>
 </div>

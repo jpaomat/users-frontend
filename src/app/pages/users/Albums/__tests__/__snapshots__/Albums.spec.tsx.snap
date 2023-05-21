@@ -12,19 +12,15 @@ exports[`<Albums /> component should render component 1`] = `
         class="list-group"
       >
         <li
-          class="list-group-item"
+          class="list-group-item card-item"
         >
           <div
-            class=" d-flex m-8 justify-content-between"
+            class="card-item__content"
           >
             <div>
               <blockquote
                 class="blockquote"
-              >
-                <p
-                  class="font-16"
-                />
-              </blockquote>
+              />
               <figcaption
                 class="blockquote-footer"
               >
@@ -37,7 +33,7 @@ exports[`<Albums /> component should render component 1`] = `
               class="item-info__aditional"
             >
               <p
-                class="text-primary font-16"
+                class="text-primary font-14"
               />
             </div>
           </div>

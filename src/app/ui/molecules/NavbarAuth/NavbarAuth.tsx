@@ -1,15 +1,14 @@
-import { ButtonApp } from '../../atoms';
 import PropTypes from 'prop-types';
-import { INavbarAuth } from '../../interfaces';
+import { ButtonApp } from '../../atoms';
+import { NavbarAuthProps } from '../../../interfaces';
 
-export const NavbarAuth = ({ userName }: INavbarAuth) => {
+export const NavbarAuth = ({ userName }: NavbarAuthProps) => {
 	return (
 		<ul className='navbar-nav ml-auto'>
 			<span className='nav-item nav-link text-primary'>{userName}</span>
 			<ButtonApp
 				size='sm'
 				variant='outline-light'
-				onClick={() => console.log('Logout')}
 			>
 				<span>Logout</span>
 			</ButtonApp>

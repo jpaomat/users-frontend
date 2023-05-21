@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { INavbar } from '../../interfaces/organisms.model';
 import { NavbarAuth, NavbarNav } from '../../molecules';
+import { NavbarProps } from '../../../interfaces';
 
-export const Navbar = ({ type, size, navbarLinks }: INavbar) => {
+export const Navbar = ({ type, size, navbarLinks }: NavbarProps) => {
 	return (
 		<nav className={`navbar fixed-top navbar-expand-sm navbar-${type} ${size}-${type} p-2`}>
 			<div className='container-fluid'>
 				<NavbarNav navbarItems={navbarLinks} />
 			</div>
 			<div className='collapse navbar-collapse w-100 dual-collapse2 d-flex justify-content-end'>
-				<NavbarAuth userName='Paola' />
+				<NavbarAuth userName='UserName' />
 			</div>
 		</nav>
 	);

@@ -1,16 +1,16 @@
-import { INavbarLink } from '../interfaces/atoms.model';
+import { NavbarLinkProps } from '../../interfaces';
 
-export const navbarLinks: INavbarLink[] = [
+export const navbarLinks: NavbarLinkProps[] = [
 	{
-		text: 'Usuarios',
-		path: '/users'
+		label: 'Usuarios',
+		redirectTo: '/users'
 	},
 	{
-		text: 'Publicaciones',
-		path: '/posts'
+		label: 'Publicaciones',
+		redirectTo: '/posts'
 	},
 	{
-		text: 'Álbumes',
-		path: 'albums'
+		label: 'Álbumes',
+		redirectTo: 'albums'
 	}
 ];

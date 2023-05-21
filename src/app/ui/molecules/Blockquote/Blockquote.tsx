@@ -1,6 +1,6 @@
-import { IBlockquote } from '../../interfaces';
+import { BlockquoteProps } from '../../../interfaces';
 
-export const Blockquote = ({title, description, footerText}: IBlockquote) => {
+export const Blockquote = ({title, description, footerText}: BlockquoteProps) => {
     return (
 		<div>
 			<blockquote className='blockquote'>

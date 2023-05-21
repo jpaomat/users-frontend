@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import { Navbar } from '../Navbar';
 import { MemoryRouter } from 'react-router-dom';
+import { defaultMock } from './mocks';
 
 describe('<Navbar /> component', () => {
 
@@ -9,7 +10,7 @@ describe('<Navbar /> component', () => {
 	test('should render component', () => {
 		const { container } = render(
 			<MemoryRouter>
-				<Navbar />
+				<Navbar type='light' size='bg' navbarLinks={defaultMock} />
 			</MemoryRouter>
 		);
 		expect(container).toMatchSnapshot();

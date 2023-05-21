@@ -1,6 +1,6 @@
 const defaultMock = [{
-    text: 'test',
-    path: '/test',
+    label: 'test',
+    redirectTo: '/test',
 }];
 
 module.exports = {

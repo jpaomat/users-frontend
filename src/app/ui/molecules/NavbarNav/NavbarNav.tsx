@@ -1,24 +1,15 @@
-import PropTypes from 'prop-types';
-import { NavbarLink } from '../../atoms';
-import { INavbarLink, INavbarNav } from '../../interfaces';
+import { NavbarLink } from '../../../ui';
+import { NavbarLinkProps, NavbarNavProps } from '../../../interfaces';
 
-export const NavbarNav = ({ navbarItems }: INavbarNav) => {
-
+export const NavbarNav = ({ navbarItems }: NavbarNavProps) => {
+	
 	return (
 		<div className='collapse navbar-collapse' id='navbarNav'>
 			<ul className='navbar-nav'>
-				{navbarItems.map((item: INavbarLink, id: number) => (
+				{navbarItems.map((item: NavbarLinkProps, id: number) => (
 					<NavbarLink key={id} {...item} />
 				))}
 			</ul>
 		</div>
 	);
-};
-
-NavbarNav.defaultProps = {
-	navbarItems: [{}],
-};
-
-NavbarNav.propTypes = {
-	navbarItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

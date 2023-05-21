@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { CardItemProps } from '../interfaces';
 import { getDataByUser } from '../helpers';
-import { ICardItem } from '../ui/interfaces';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
 
@@ -8,7 +8,7 @@ export const useUsers = (resource: string) => {
     const usersClient = envJson.usersClient;
     const { data: initialUsersData, hasError } = useAxios(resource);
     const [isLoadingData, setIsLoadingData] = useState(false);
-    const [dataCompleteUsers, setDataCompleteUsers] = useState<ICardItem[]>([initialDataCardItem]);
+    const [dataCompleteUsers, setDataCompleteUsers] = useState<CardItemProps[]>([initialDataCardItem]);
 
     const addPostsToUsers = async () => {
         if (!hasError && initialUsersData.length > 0) {
@@ -17,7 +17,7 @@ export const useUsers = (resource: string) => {
                     const postsByUser = await getDataByUser({ id, path: usersClient.post });
                     const albumsByUser = await getDataByUser({ id, path: usersClient.albums });
                     return {
-                        userIcon: { icon: 'user', userName: username },
+                        userIconProps: { icon: 'user', userName: username },
                         description: name,
                         footerText: email,
                         aditionalInfo: [`${postsByUser.length} publicaciones`, `${albumsByUser.length} álbumes`],

@@ -9,23 +9,23 @@ describe('<NavbarLink /> component', () => {
 	test('should render component', () => {
 		const { container } = render(
 			<MemoryRouter>
-				<NavbarLink text='test' path='/test'/>
+				<NavbarLink label='test' redirectTo='/test'/>
 			</MemoryRouter>
 		);
 		expect(container).toMatchSnapshot();
 	});
 
-	test('should show the text linl', () => {
+	test('should show the text link', () => {
 		const dataLink = {
-			text: 'Productos',
-			path:'/products'
+			label: 'Productos',
+			redirectTo:'/products'
 		};
 		render(
 			<MemoryRouter>
 				<NavbarLink {...dataLink} />
 			</MemoryRouter>
 		);
-		fireEvent.click(screen.getByText(dataLink.text));
-		expect(screen.getByText(dataLink.text)).toBeTruthy();
+		fireEvent.click(screen.getByText(dataLink.label));
+		expect(screen.getByText(dataLink.label)).toBeTruthy();
 	});
 });

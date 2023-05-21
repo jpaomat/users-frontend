@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
+import { ButtonAppProps } from '../../../interfaces';
 import './ButtonApp.scss';
-import { IButtonApp } from '../../interfaces';
 
-export const ButtonApp = ({ children, size, variant, isDisabled, onClick }: IButtonApp) => {
+export const ButtonApp = ({ children, type, size, variant, isDisabled, onClick }: ButtonAppProps) => {
 	return (
 		<button
+			type={type}
 			className={`btn btn-${variant} btn-${size}`}
 			disabled={isDisabled}
 			onClick={onClick}
@@ -15,15 +15,6 @@ export const ButtonApp = ({ children, size, variant, isDisabled, onClick }: IBut
 };
 
 ButtonApp.defaultProps = {
-	isDisabled: false,
-	size: 'sm',
-	variant: 'primary',
-};
-
-ButtonApp.propTypes = {
-	children: PropTypes.element.isRequired,
-	isDisabled: PropTypes.bool,
-	onClick: PropTypes.func.isRequired,
-	size: PropTypes.string,
-	variant: PropTypes.string,
+	type: 'button',
+	isDisabled: false
 };

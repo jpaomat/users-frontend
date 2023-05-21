@@ -10,7 +10,7 @@ describe('<NavbarNav /> component', () => {
 	test('should render component', () => {
 		const { container } = render(
 			<MemoryRouter>
-				<NavbarNav {...defaultMock}/>
+				<NavbarNav navbarItems={defaultMock}/>
 			</MemoryRouter>
 		);
 		expect(container).toMatchSnapshot();

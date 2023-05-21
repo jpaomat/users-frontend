@@ -12,6 +12,7 @@ exports[`<NavbarAuth /> component should render component 1`] = `
     </span>
     <button
       class="btn btn-outline-light btn-sm"
+      type="button"
     >
       <span>
         Logout

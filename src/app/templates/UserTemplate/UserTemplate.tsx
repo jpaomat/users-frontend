@@ -1,15 +1,14 @@
-import { IUserTemplate } from '../../ui/interfaces';
-import { LoadingQuote } from '../../ui/molecules';
-import { CardList } from '../../ui/organisms';
+import { UserTemplateProps } from '../../interfaces';
+import { CardList, LoadingQuote } from '../../ui';
 
-export const UserTemplate = ({ dataList, isLoadingData }: IUserTemplate) => {
+export const UserTemplate = ({ dataCardList, isLoadingData }: UserTemplateProps) => {
 	return (
 		<>
 			{!isLoadingData ? (
 				<LoadingQuote />
 			) : (
 				<div className='container mt-72'>
-					<CardList dataList={dataList} />
+					<CardList dataList={dataCardList} />
 				</div>
 			)}
 		</>

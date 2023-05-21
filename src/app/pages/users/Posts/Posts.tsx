@@ -6,5 +6,5 @@ export const Posts = () => {
   const usersClient = envJson.usersClient;
 	const { postsData, isLoadingData } = usePosts(usersClient.post, 5);
 
-	return <UserTemplate dataList={postsData} isLoadingData={isLoadingData} />;
+	return <UserTemplate dataCardList={postsData} isLoadingData={isLoadingData} />;
 };

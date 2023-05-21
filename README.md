@@ -1,6 +1,6 @@
 # Users App
 
-_Esta App se encarga mostrar el listado de usuarios, posts y albunes._
+_Esta App se encarga mostrar el listado de usuarios, publicaciones y álbumes._
 
 ---
 ## Empecemos 🚀

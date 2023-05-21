@@ -1,12 +1,16 @@
-p {
-    margin: 0;
-    padding: 0;
+@import '../../../../assets/scss';
+
+.card-item {
+	margin: 10px;
 }
 
-.font-16 {
-    font-size: 16px;
-}
-
-li {
-    margin: 10px;
+@media screen and (min-width: $break-tablet) {
+	.card-item {
+        display: flex;
+        &__content {
+            width: 100%;
+            justify-content: space-between;
+            @include organizedMultipleColumns(60% 30%);
+        }
+	}
 }

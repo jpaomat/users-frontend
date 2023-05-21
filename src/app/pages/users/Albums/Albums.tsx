@@ -6,5 +6,5 @@ export const Albums = () => {
   const usersClient = envJson.usersClient;
   const { albumsData, isLoadingData } = useAlbums(usersClient.albums, 5);
 
-	return <UserTemplate dataList={albumsData} isLoadingData={isLoadingData} />;
+	return <UserTemplate dataCardList={albumsData} isLoadingData={isLoadingData} />;
 };

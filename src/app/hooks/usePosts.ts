@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { CardItemProps } from '../interfaces';
 import { getDataByUser, getLastElementsArray } from '../helpers';
-import { ICardItem } from '../ui/interfaces';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
 
@@ -8,7 +8,7 @@ export const usePosts = (resource: string, numLastPosts: number) => {
     const usersClient = envJson.usersClient;
     const { data: initialPostsData, hasError } = useAxios(resource);
     const [isLoadingData, setIsLoadingData] = useState(false);
-    const [dataCompletePosts, setDataCompletePosts] = useState<ICardItem[]>([initialDataCardItem]);
+    const [dataCompletePosts, setDataCompletePosts] = useState<CardItemProps[]>([initialDataCardItem]);
 
     const addCommentsToPosts = async () => {
         if (!hasError && initialPostsData.length > 0) {

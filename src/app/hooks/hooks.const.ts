@@ -1,5 +1,5 @@
 export const initialDataCardItem = {
     description: '',
-    aditionalInfo: [''],
+    aditionalInfo: [{text: ''}],
     footerText: '',
 };

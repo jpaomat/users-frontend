@@ -4,6 +4,12 @@
 	margin: 10px;
 }
 
+.item-info {
+    &__link {
+        cursor: pointer;
+    }
+}
+
 @media screen and (min-width: $break-tablet) {
 	.card-item {
         display: flex;

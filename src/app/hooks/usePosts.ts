@@ -3,10 +3,12 @@ import { CardItemProps } from '../interfaces';
 import { getDataByUser, getLastElementsArray } from '../utils';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
+import { useLocation } from 'react-router-dom';
 
 export const usePosts = (resource: string, numLastPosts: number) => {
     const usersClient = envJson.usersClient;
-    const { data: initialPostsData, hasError } = useAxios(resource);
+    const queryString = useLocation().search;
+        const { data: initialPostsData, hasError } = useAxios(`${resource}${queryString}`);
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [dataCompletePosts, setDataCompletePosts] = useState<CardItemProps[]>([initialDataCardItem]);
 
@@ -20,7 +22,7 @@ export const usePosts = (resource: string, numLastPosts: number) => {
                     return {
                         title,
                         footerText: `Autor: ${userByUserId.name}`,
-                        aditionalInfo: [`${commentsByUser.length} comentarios`],
+                        aditionalInfo: [{text: `${commentsByUser.length} comentarios`}],
                     };
                 })
             );

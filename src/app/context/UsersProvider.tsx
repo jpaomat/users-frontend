@@ -5,7 +5,8 @@ import { usersReducer } from './usersReducer';
 
 const INITIAL_STATE: UsersState = {
   numberAlbums: 5,
-  numberPosts: 5
+  numberPosts: 5,
+  userSelected: '',
 };
 
 interface UserProviderProps {
@@ -23,8 +24,12 @@ export const UsersProvider = ({children}: UserProviderProps) => {
     dispatch({type: 'addNumberAlbums', payload: numAlbums});
   };
 
+  const setUserSelected = (user: string) => {
+    dispatch({type: 'addUserSelected', payload: user});
+  };
+
   return (
-    <UserContext.Provider value={{usersState, setNumberPosts, setNumberAlbums}}>
+    <UserContext.Provider value={{usersState, setNumberPosts, setNumberAlbums, setUserSelected}}>
       {children}
     </UserContext.Provider>
   );

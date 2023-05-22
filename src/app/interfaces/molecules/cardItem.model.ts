@@ -5,5 +5,10 @@ export interface CardItemProps {
     title?: string;
     description?: string;
     footerText: string;
-    aditionalInfo: string[];
+    aditionalInfo: IAditionalInfo[];
+}
+
+interface IAditionalInfo {
+    text: string;
+    redirectTo?: Function;
 }

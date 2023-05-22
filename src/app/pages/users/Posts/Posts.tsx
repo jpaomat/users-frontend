@@ -6,8 +6,8 @@ import { UserContext } from '../../../context';
 
 export const Posts = () => {
 	const usersClient = envJson.usersClient;
-	const { usersState } = useContext(UserContext);
-	const { postsData, isLoadingData } = usePosts(usersClient.post, usersState.numberPosts);
+	const { usersState: { numberPosts} } = useContext(UserContext);	
+	const { postsData, isLoadingData } = usePosts(usersClient.post, numberPosts);
 
 	return <UserTemplate dataCardList={postsData} isLoadingData={isLoadingData} />;
 };

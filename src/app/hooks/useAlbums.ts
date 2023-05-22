@@ -3,10 +3,12 @@ import { CardItemProps } from '../interfaces';
 import { getDataByUser, getLastElementsArray } from '../utils';
 import { useAxios, initialDataCardItem } from './';
 import envJson from '../config/ENV.json';
+import { useLocation } from 'react-router-dom';
 
 export const useAlbums = (resource: string, numLastAlmbums: number ) => {
     const usersClient = envJson.usersClient;
-    const { data: initialAlbumData, hasError } = useAxios(resource);
+    const queryString = useLocation().search;
+    const { data: initialAlbumData, hasError } = useAxios(`${resource}${queryString}`);
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [dataCompleteAlbums, setDataCompleteAlbums] = useState<CardItemProps[]>([initialDataCardItem]);
 
@@ -20,7 +22,7 @@ export const useAlbums = (resource: string, numLastAlmbums: number ) => {
                     return {
                         title,
                         footerText: `Autor: ${userByUserId.name}`,
-                        aditionalInfo: [`${photosByAlbum.length} fotos`],
+                        aditionalInfo: [{text: `${photosByAlbum.length} fotos`}],
                     };
                 })
             );

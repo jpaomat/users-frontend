@@ -1,7 +1,7 @@
 const defaultProps = {
     description: 'Description item', 
     footerText: '', 
-    aditionalInfo: ['test'],
+    aditionalInfo: [{text:'test'}],
     userIconProps:  {
         icon: 'string',
         userName: 'string',

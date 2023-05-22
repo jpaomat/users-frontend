@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Albums, Posts, Users } from '../';
-import { Navbar } from '../../../ui/organisms';
+import { NavbarApp } from '../../../ui/organisms';
 import { navbarLinks } from '../../../helpers';
 import { UserContext } from '../../../context';
 
@@ -12,7 +12,7 @@ export const UsersRouter = () => {
 
 	return (
 		<>
-			<Navbar size='bg' type='dark' navbarLinks={itemsNavbar} />
+			<NavbarApp size='bg' type='dark' navbarLinks={itemsNavbar} />
 			<Routes>
 				<Route path='/users' element={<Users />} />
 				<Route path='/posts' element={<Posts />} />

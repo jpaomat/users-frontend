@@ -3,17 +3,27 @@
 exports[`<Navbar /> component should render component 1`] = `
 <div>
   <nav
-    class="navbar fixed-top navbar-expand-sm navbar-light bg-light p-2"
+    class="fixed-top navbar navbar-expand-lg navbar-light bg-light"
   >
     <div
-      class="container-fluid"
+      class="container"
     >
-      <div
-        class="collapse navbar-collapse"
-        id="navbarNav"
+      <button
+        aria-controls="navbarScroll"
+        aria-label="Toggle navigation"
+        class="navbar-toggler collapsed"
+        type="button"
       >
-        <ul
-          class="navbar-nav"
+        <span
+          class="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        class="navbar-collapse collapse"
+        id="responsive-navbar-nav"
+      >
+        <div
+          class="me-auto navbar-nav"
         >
           <a
             class="nav-link  undefined"
@@ -21,29 +31,27 @@ exports[`<Navbar /> component should render component 1`] = `
           >
             test
           </a>
+        </div>
+      </div>
+      <div>
+        <ul
+          class="navbar-nav ml-auto"
+        >
+          <span
+            class="nav-item nav-link text-primary"
+          >
+            UserName
+          </span>
+          <button
+            class="btn btn-outline-light btn-sm"
+            type="button"
+          >
+            <span>
+              Logout
+            </span>
+          </button>
         </ul>
       </div>
-    </div>
-    <div
-      class="collapse navbar-collapse w-100 dual-collapse2 d-flex justify-content-end"
-    >
-      <ul
-        class="navbar-nav ml-auto"
-      >
-        <span
-          class="nav-item nav-link text-primary"
-        >
-          UserName
-        </span>
-        <button
-          class="btn btn-outline-light btn-sm"
-          type="button"
-        >
-          <span>
-            Logout
-          </span>
-        </button>
-      </ul>
     </div>
   </nav>
 </div>

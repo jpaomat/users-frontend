@@ -4,9 +4,9 @@ import { FormDropdownProps } from '../../../interfaces';
 import { useForm } from '../../../hooks/general/useForm';
 import './SimpleForm.scss';
 
-export const SimpleForm = ({ name, placeholder, buttonText, getFormFields, onCloseForm }: FormDropdownProps) => {
+export const SimpleForm = ({ name, inputValue = '', placeholder, buttonText, getFormFields, onCloseForm }: FormDropdownProps) => {
 	const { formState, onInputChange, onReset } = useForm({
-		[name]: ''
+		[name]: inputValue
 	});
 	const onClick = () => {
 		getFormFields(formState);

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleForm /> component should render component 1`] = `
+<div>
+  <div
+    class="simple-form"
+  >
+    <div
+      class="input-group input-group-sm"
+    >
+      <input
+        class="form-control"
+        name="inputText"
+        value="hi test"
+      />
+      <button
+        class="btn btn-outline-secondary"
+        id="button-addon2"
+        type="button"
+      >
+        send
+      </button>
+    </div>
+  </div>
+</div>
+`;

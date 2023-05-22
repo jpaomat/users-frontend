@@ -3,7 +3,8 @@
 exports[`<ButtonApp /> component should render component 1`] = `
 <div>
   <button
-    class="btn btn-danger btn-sm"
+    class="btn btn-primary btn-sm"
+    type="button"
   >
     <span>
       Continuar

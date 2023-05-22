@@ -1,8 +1,16 @@
+@import '../../../../assets/scss';
 .user-list {
-    width: 70%;
-    margin: 10px auto;
+    width: 90%;
+    margin: 100px auto;
     border-radius: 10px;
     margin-bottom: 4px;
     position: relative;
     background-color: white;
+}
+
+@media screen and (min-width: $break-desktop) {
+    .user-list {
+        width: 70%;
+        margin: 10px auto;
+    }
 }

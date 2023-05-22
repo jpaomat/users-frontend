@@ -1,26 +1,24 @@
-import PropTypes from 'prop-types';
-import { INavbar } from '../../interfaces/organisms.model';
-import { NavbarAuth, NavbarNav, navbarLinks } from '../../molecules';
+import { NavbarAuth, NavbarNav } from '../../molecules';
+import { NavbarProps } from '../../../interfaces';
+import { Container, Navbar } from 'react-bootstrap';
 
-export const Navbar = ({ type, size }: INavbar) => {
+export const NavbarApp = ({ type, size, navbarLinks }: NavbarProps) => {
 	return (
-		<nav className={`navbar fixed-top navbar-expand-sm navbar-${type} ${size}-${type} p-2`}>
-			<div className='container-fluid'>
-				<NavbarNav navbarItems={navbarLinks} />
-			</div>
-			<div className='collapse navbar-collapse w-100 dual-collapse2 d-flex justify-content-end'>
-				<NavbarAuth userName='Paola' />
-			</div>
-		</nav>
+		<Navbar className='fixed-top' collapseOnSelect expand='lg' bg={type} variant={type}>
+			<Container>
+				<Navbar.Toggle aria-controls="navbarScroll" />
+				<Navbar.Collapse id="responsive-navbar-nav">
+					<NavbarNav navbarItems={navbarLinks} />
+				</Navbar.Collapse>
+				<div>
+					<NavbarAuth userName='UserName' />
+				</div>
+			</Container>
+	  </Navbar>
 	);
 };
 
-Navbar.defaultProps = {
+NavbarApp.defaultProps = {
 	type: '',
 	size: '',
-};
-
-Navbar.propTypes = {
-	type: PropTypes.string,
-	size: PropTypes.string,
 };

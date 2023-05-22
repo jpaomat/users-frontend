@@ -2,8 +2,44 @@
 
 exports[`<Posts /> component should render component 1`] = `
 <div>
-  <div>
-    Albums
+  <div
+    class="container mt-72"
+  >
+    <div
+      class="user-list"
+    >
+      <ul
+        class="list-group"
+      >
+        <li
+          class="list-group-item card-item"
+        >
+          <div
+            class="card-item__content"
+          >
+            <div>
+              <blockquote
+                class="blockquote"
+              />
+              <figcaption
+                class="blockquote-footer"
+              >
+                <cite
+                  title="Source Title"
+                />
+              </figcaption>
+            </div>
+            <div
+              class="item-info__aditional"
+            >
+              <p
+                class="text-primary font-14"
+              />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;

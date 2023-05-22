@@ -1,10 +1,11 @@
-import { IBlockquote } from '../../interfaces';
+import { BlockquoteProps } from '../../../interfaces';
 
-export const Blockquote = ({description, footerText}: IBlockquote) => {
+export const Blockquote = ({title, description, footerText}: BlockquoteProps) => {
     return (
 		<div>
 			<blockquote className='blockquote'>
-				<p className='font-16'>{description}</p>
+				{title && <p className='font-16'><b>Título: </b>{title}</p>}
+				{description && <p className='font-16'>{description}</p>}
 			</blockquote>
 			<figcaption className='blockquote-footer'>
 				<cite title='Source Title'>{footerText}</cite>

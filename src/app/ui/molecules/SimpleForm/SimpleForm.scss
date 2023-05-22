@@ -1,0 +1,8 @@
+.simple-form {
+    display: block;
+    margin: 4px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem rgba(13,110,253,.25);
+}

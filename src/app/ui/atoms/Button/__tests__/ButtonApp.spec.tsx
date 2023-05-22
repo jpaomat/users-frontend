@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ButtonApp } from '../ButtonApp';
-import { defaultMock } from './mocks';
 
 describe('<ButtonApp /> component', () => {
 	const buttonText = 'Continuar';
@@ -9,7 +8,9 @@ describe('<ButtonApp /> component', () => {
 	
 	test('should render component', () => {
 		const { container } = render(
-			<ButtonApp {...defaultMock}>
+			<ButtonApp
+				size='sm'
+				variant='primary'>
 				<span>{buttonText}</span>
 			</ButtonApp>
 		);
@@ -18,7 +19,9 @@ describe('<ButtonApp /> component', () => {
 
 	test('should show the text Continuar', () => {
 		render(
-			<ButtonApp {...defaultMock}>
+			<ButtonApp
+				size='sm'
+				variant='primary'>
 				<span>{buttonText}</span>
 			</ButtonApp>
 		);
@@ -32,7 +35,7 @@ describe('<ButtonApp /> component', () => {
 			testEvent = 'Hi Button';
 		};
 		render(
-			<ButtonApp {...defaultMock} onClick={onClickTest}>
+			<ButtonApp size='lg' variant='dark' onClick={onClickTest}>
 				<span>{buttonText}</span>
 			</ButtonApp>
 		);

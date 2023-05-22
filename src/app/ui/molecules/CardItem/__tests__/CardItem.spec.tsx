@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { CardItem } from '../../CardItem/CardItem';
 import { defaultProps } from './mocks';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('<UserItem /> component', () => {
 
@@ -8,7 +9,9 @@ describe('<UserItem /> component', () => {
 	
 	test('should render component', () => {
 		const { container } = render(
-			<CardItem {...defaultProps}/>
+			<MemoryRouter>
+				<CardItem {...defaultProps}/>
+			</MemoryRouter>
 		);
 		expect(container).toMatchSnapshot();
 	});

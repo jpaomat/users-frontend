@@ -1,24 +1,29 @@
-import PropTypes from 'prop-types';
-import { NavbarLink } from '../../atoms';
-import { INavbarLink, INavbarNav } from '../../interfaces';
+import { NavDropdown } from 'react-bootstrap';
+import { NavbarLink, SimpleForm } from '../../../ui';
+import { NavbarNavProps } from '../../../interfaces';
+import './NavbarNav.scss';
+import { useState } from 'react';
 
-export const NavbarNav = ({ navbarItems }: INavbarNav) => {
-
+export const NavbarNav = ({ navbarItems }: NavbarNavProps) => {
+	const [closeDropdown, setCloseDropdown] = useState<boolean>(false);
+	
 	return (
-		<div className='collapse navbar-collapse' id='navbarNav'>
-			<ul className='navbar-nav'>
-				{navbarItems.map((item: INavbarLink, id: number) => (
-					<NavbarLink key={id} {...item} />
-				))}
-			</ul>
+		<div className='me-auto navbar-nav'>
+			{navbarItems.map(({ label, redirectTo, dropdownForm }) =>
+				dropdownForm ? (
+					<NavDropdown
+						key={label}
+						id={label}
+						className={`${closeDropdown ? 'dropdown-close' : 'show'}`}
+						title={label}
+						onClickCapture={( () => setCloseDropdown(false))}
+					>
+						<SimpleForm {...dropdownForm} onCloseForm={() => setCloseDropdown(true)} />
+					</NavDropdown>
+				) : (
+					<NavbarLink key={label} label={label} redirectTo={redirectTo} />
+				)
+			)}
 		</div>
 	);
-};
-
-NavbarNav.defaultProps = {
-	navbarItems: [{}],
-};
-
-NavbarNav.propTypes = {
-	navbarItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

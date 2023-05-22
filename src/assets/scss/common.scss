@@ -1,21 +1,17 @@
-.section-container {
-	margin: 16px;
+.font-16 {
+	font-size: 16px;
 }
 
-.item__no-stock {
-	color: $red-300;
-	margin: 10px 0;
+.font-14 {
+	font-size: 14px;
 }
 
-@media screen and (min-width: $break-tablet) {
-	.section-container {
-		margin: 0 32px;
-	}
+.mt-72 {
+	margin-top:  72px;
 }
 
-@media screen and (min-width: $break-desktop) {
-	.section-container {
-		margin: 0 72px;
-	}
+p {
+	margin: 0;
+	padding: 0;
 }
 

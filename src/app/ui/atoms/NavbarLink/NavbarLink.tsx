@@ -1,25 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { INavbarLink } from '../../interfaces';
+import { NavbarLinkProps } from '../../../interfaces';
 
-export const NavbarLink = ({ text, path }: INavbarLink) => {
+export const NavbarLink = ({className, label, redirectTo }: NavbarLinkProps) => {
   
 	return (
 		<NavLink
-			className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-			to={path}
+			className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} ${className}`}
+			to={redirectTo}
 		>
-			{text}
+			{label}
 		</NavLink>
 	);
-};
-
-NavbarLink.defaultProps = {
-	text: '',
-	path: '',
-};
-
-NavbarLink.propTypes = {
-	text: PropTypes.string.isRequired,
-	path: PropTypes.string.isRequired,
 };

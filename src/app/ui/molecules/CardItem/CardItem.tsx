@@ -1,38 +1,26 @@
-import PropTypes from 'prop-types';
-import { ICardItem } from '../../interfaces';
-
-import './CardItem.scss';
+// import { Blockquote, UserIcon } from '../../../ui';
+import { CardItemProps } from '../../../interfaces';
 import { UserIcon } from '../../atoms';
 import { Blockquote } from '../Blockquote/Blockquote';
+import './CardItem.scss';
 
-export const CardItem = ({ userIcon, description, footerText, aditionalInfo }: ICardItem) => {
+export const CardItem = ({ userIconProps, title, description, footerText, aditionalInfo }: CardItemProps) => {
+
 	return (
-		<li className='list-group-item'>
-			<div className=' d-flex m-8 justify-content-between'>
-				{userIcon && <UserIcon {...userIcon} />}
-				<Blockquote description={description} footerText={footerText} />
+		<li className='list-group-item card-item'>
+			{userIconProps && <UserIcon {...userIconProps} />}
+			<div className='card-item__content'>
+				<Blockquote title={title} description={description} footerText={footerText} />
 				<div className='item-info__aditional'>
-					{aditionalInfo.map((text, id) => (
-						<p key={id} className='text-primary font-16'>
-							{text}
+					{aditionalInfo.map(({text, redirectTo} , id) => (
+						<p key={id} className='text-primary font-14'>
+							{redirectTo ? 
+							<a className='item-info__link' onClick={() => redirectTo()}>{text}</a>
+							: text}
 						</p>
 					))}
 				</div>
 			</div>
 		</li>
 	);
-};
-
-CardItem.defaultProps = {
-	userIcon: {},
-	description:'', 
-	footerText:'', 
-	aditionalInfo: [],
-};
-
-CardItem.propTypes = {
-	userIcon: PropTypes.shape({}),
-	description:PropTypes.string, 
-	footerText:PropTypes.string, 
-	aditionalInfo: PropTypes.arrayOf,
 };

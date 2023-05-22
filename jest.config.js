@@ -9,7 +9,7 @@ module.exports = {
 	 */
 		{
 			displayName: 'components',
-			testMatch: ['<rootDir>/src/app/**/__tests__/**/*.spec.(jsx|tsx|js)'],
+			testMatch: ['<rootDir>/src/app/**/__tests__/**/*.spec.(jsx|tsx|js|ts)'],
 			testEnvironment: 'jsdom',
 			setupFilesAfterEnv: [
 				'<rootDir>/jest.env.js',
